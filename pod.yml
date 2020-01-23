@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: fb-configmap-pod-2.0
-  namespace: facebook
+  namespace: facebook-twitter
 spec:
   containers:
    - name: fb
