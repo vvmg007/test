@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fb-configmap-pod-2.0
+  namespace: facebook-twitter
+spec:
+  containers:
+   - name: fb
+     image: nginx
+     command: ['sh', '-c',"echo $(MY_VAR) > /usr/share/nginx/html/index.html &&sleep 100000000"]
+     env:
+       - name: MY_VAR
+         valueFrom:
+           configMapKeyRef:
+             name: fbconfig-map
+             key: head
+             key: body
